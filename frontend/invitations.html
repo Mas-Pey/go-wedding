@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/e.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Invitation Dashboard</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ef4444',
+            secondary: '#1e293b'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="css/remixicon.min.css" rel="stylesheet">
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    body { background-color: #0f172a; color: #f8fafc; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-50 min-h-screen">
+  <div class="flex min-h-screen">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" onclick="toggleSidebar()"></div>
+    
+    <aside id="sidebar" class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+      <div class="p-6 border-b border-slate-700">
+        <div class="flex items-center gap-3">
+          <span class="font-['Pacifico'] text-xl text-white">weddingvibes</span>
+        </div>
+      </div>
+      <nav class="p-6">
+        <div class="mb-8">
+          <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Main Menu</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-dashboard-line text-sm"></i>
+                </div>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="invitations.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-mail-line text-sm"></i>
+                </div>
+                <span>My Invitations</span>
+              </a>
+            </li>
+            <li>
+              <a href="invoice.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-file-text-line text-sm"></i>
+                </div>
+                <span>Invoice</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Account</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="profile.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-user-line text-sm"></i>
+                </div>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-logout-box-line text-sm"></i>
+                </div>
+                <span>Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="flex-1 bg-slate-900 lg:ml-0">
+      <header class="bg-slate-800 border-b border-slate-700 px-4 sm:px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <button id="sidebar-toggle" class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white" onclick="toggleSidebar()">
+              <i class="ri-menu-line text-xl"></i>
+            </button>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-grid-line text-xl text-slate-300"></i>
+            </div>
+            <h1 class="text-xl font-semibold text-white">Invitations</h1>
+          </div>
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="text-sm text-slate-400 hidden sm:block">Fri, 17 Oct 2025 - 22:58</span>
+            <div class="flex items-center gap-4">
+              <button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white">
+                <i class="ri-fullscreen-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white">
+                <i class="ri-moon-line"></i>
+              </button>
+              <div class="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center">
+                <span class="text-sm font-medium text-white">T</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="p-4 sm:p-6 md:p-8">
+        <nav class="flex items-center gap-2 text-sm mb-6">
+          <div class="w-4 h-4 flex items-center justify-center">
+            <i class="ri-home-line text-slate-400"></i>
+          </div>
+          <span class="text-slate-400">Home</span>
+          <div class="w-4 h-4 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line text-slate-400"></i>
+          </div>
+          <span class="text-white">Invitations</span>
+        </nav>
+        <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-6 sm:mb-8">
+          <p class="text-blue-300 text-sm">
+            Please complete your profile data first
+            <a href="profile.html" class="text-blue-400 underline hover:text-blue-300">here</a>
+          </p>
+        </div>
+        <div class="mb-6 sm:mb-8">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-white mb-2">Invitation Data List</h2>
+              <p class="text-slate-400">Create various kinds of invitations in one platform</p>
+            </div>
+            <button class="bg-primary hover:bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 !rounded-button font-medium transition-colors whitespace-nowrap flex items-center gap-2">
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i class="ri-add-line"></i>
+              </div>
+              Create Card Invitation
+            </button>
+          </div>
+        </div>
+        <div class="mb-6 sm:mb-8">
+          <div class="relative max-w-md">
+            <input type="text" placeholder="Search Invitations..." class="w-full bg-slate-800 border border-slate-600 rounded-lg pl-10 pr-4 py-2 sm:py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-blue-500">
+            <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center">
+              <i class="ri-search-line text-slate-400"></i>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Wedding Invitation</h3>
+                  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-medium">Active</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Thursday, 16 October 2025 at 08:55</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/adam-hawa</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Birthday Party</h3>
+                  <span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs font-medium">Draft</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Saturday, 18 October 2025 at 15:30</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/birthday-sarah</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Corporate Event</h3>
+                  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-medium">Active</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Monday, 20 October 2025 at 09:00</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/tech-summit</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Baby Shower</h3>
+                  <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-medium">Scheduled</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Friday, 24 October 2025 at 14:00</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/baby-emma</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Graduation Party</h3>
+                  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-medium">Active</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Sunday, 26 October 2025 at 18:00</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/grad-michael</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="edit-invitation.html" class="block bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-slate-600 transition-colors">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-image-line text-slate-400 text-lg"></i>
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-white text-sm">Anniversary Dinner</h3>
+                  <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-medium">Expired</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-2">Tuesday, 15 October 2025 at 19:30</p>
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 flex items-center justify-center">
+                    <i class="ri-link text-slate-500 text-xs"></i>
+                  </div>
+                  <span class="text-slate-500 text-xs">invitation.io/anniversary-john</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Removed navigation interactions script that was interfering with link navigation -->
+  
+  <script id="search-functionality">
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.querySelector('input[placeholder="Search Invitations..."]');
+      const invitationCards = document.querySelectorAll('.grid > div');
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        invitationCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const isVisible = title.includes(searchTerm);
+          card.style.display = isVisible ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+  
+  <script id="card-hover-effects">
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.grid > div');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-2px)';
+          this.style.transition = 'transform 0.2s ease';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  </script>
+  
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+    
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleButton = document.getElementById('sidebar-toggle');
+      
+      if (!sidebar.classList.contains('-translate-x-full') && 
+          !sidebar.contains(event.target) && 
+          event.target !== toggleButton &&
+          !toggleButton.contains(event.target)) {
+        toggleSidebar();
+      }
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const now = new Date();
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      const dateElement = document.querySelector('header span.text-slate-400');
+      if (dateElement) {
+        dateElement.textContent = now.toLocaleDateString('en-US', options);
+      }
+    });
+  </script>
+</body>
+</html>

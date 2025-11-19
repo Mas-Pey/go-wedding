@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/e.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Invitation Dashboard</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ef4444',
+            secondary: '#1e293b'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="css/remixicon.min.css" rel="stylesheet">
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    body { background-color: #0f172a; color: #f8fafc; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-50 min-h-screen">
+  <div class="flex min-h-screen">
+    <!-- Mobile sidebar overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" onclick="toggleSidebar()"></div>
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+      <div class="p-6 border-b border-slate-700">
+        <div class="flex items-center gap-3">
+          <span class="font-['Pacifico'] text-xl text-white">weddingvibes</span>
+        </div>
+      </div>
+      <nav class="p-6">
+        <div class="mb-8">
+          <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Main Menu</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-dashboard-line text-sm"></i>
+                </div>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="invitations.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-mail-line text-sm"></i>
+                </div>
+                <span>My Invitations</span>
+              </a>
+            </li>
+            <li>
+              <a href="invoice.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-file-text-line text-sm"></i>
+                </div>
+                <span>Invoice</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Account</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="profile.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-user-line text-sm"></i>
+                </div>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-logout-box-line text-sm"></i>
+                </div>
+                <span>Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 bg-slate-900 lg:ml-0">
+      <header class="bg-slate-800 border-b border-slate-700 px-4 sm:px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <!-- Hamburger menu button for mobile -->
+            <button id="sidebar-toggle" class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white" onclick="toggleSidebar()">
+              <i class="ri-menu-line text-xl"></i>
+            </button>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-dashboard-line text-xl text-slate-300"></i>
+            </div>
+            <h1 class="text-xl font-semibold text-white">Dashboard</h1>
+          </div>
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="text-sm text-slate-400 hidden sm:block">Fri, 17 Oct 2025 - 22:58</span>
+            <div class="flex items-center gap-4">
+              <button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white">
+                <i class="ri-fullscreen-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white">
+                <i class="ri-moon-line"></i>
+              </button>
+              <div class="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center">
+                <span class="text-sm font-medium text-white">T</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="p-4 sm:p-6 md:p-8">
+        <nav class="flex items-center gap-2 text-sm mb-6">
+          <div class="w-4 h-4 flex items-center justify-center">
+            <i class="ri-home-line text-slate-400"></i>
+          </div>
+          <span class="text-slate-400">Home</span>
+          <div class="w-4 h-4 flex items-center justify-center">
+            <i class="ri-arrow-right-s-line text-slate-400"></i>
+          </div>
+          <span class="text-white">Dashboard</span>
+        </nav>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                <i class="ri-mail-line text-blue-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-slate-400 text-sm">Total Invitations</p>
+                <p class="text-2xl font-semibold text-white">24</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                <i class="ri-check-line text-green-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-slate-400 text-sm">Active</p>
+                <p class="text-2xl font-semibold text-white">18</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                <i class="ri-time-line text-yellow-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-slate-400 text-sm">Scheduled</p>
+                <p class="text-2xl font-semibold text-white">3</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                <i class="ri-eye-line text-red-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-slate-400 text-sm">Total Views</p>
+                <p class="text-2xl font-semibold text-white">1,248</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 class="text-lg font-semibold text-white">Recent Activity</h2>
+              <button class="text-sm text-primary hover:text-red-600">View All</button>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-add-line text-white text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white text-sm">Created new wedding invitation</p>
+                  <p class="text-slate-400 text-xs">2 hours ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white text-sm">Adam & Hawa's invitation is now active</p>
+                  <p class="text-slate-400 text-xs">5 hours ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-eye-line text-white text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white text-sm">Sarah's birthday invitation got 42 views</p>
+                  <p class="text-slate-400 text-xs">1 day ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-time-line text-white text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white text-sm">Corporate event scheduled for next week</p>
+                  <p class="text-slate-400 text-xs">2 days ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 class="text-lg font-semibold text-white">Statistics</h2>
+              <button class="text-sm text-primary hover:text-red-600">View Report</button>
+            </div>
+            <div class="h-64 flex items-center justify-center">
+              <p class="text-slate-400">Chart visualization will appear here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+    
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleButton = document.getElementById('sidebar-toggle');
+      
+      if (!sidebar.classList.contains('-translate-x-full') && 
+          !sidebar.contains(event.target) && 
+          event.target !== toggleButton &&
+          !toggleButton.contains(event.target)) {
+        toggleSidebar();
+      }
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const now = new Date();
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      const dateElement = document.querySelector('header span.text-slate-400');
+      if (dateElement) {
+        dateElement.textContent = now.toLocaleDateString('en-US', options);
+      }
+    });
+  </script>
+</body>
+</html>
