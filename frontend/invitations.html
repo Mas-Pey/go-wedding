@@ -30,6 +30,7 @@
       }
     }
   </script>
+  <script src="js/auth.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -91,7 +92,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a id="logoutBtn" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-logout-box-line text-sm"></i>
                 </div>
@@ -369,6 +370,14 @@
         dateElement.textContent = now.toLocaleDateString('en-US', options);
       }
     });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      Logout()
+      const response = await fetchProtected("http://localhost:8080/api/me")
+      if (!response) return
+    })
   </script>
 </body>
 </html>

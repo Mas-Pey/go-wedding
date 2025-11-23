@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <script src="js/e.js"></script>
   <meta charset="UTF-8">
@@ -30,22 +31,32 @@
       }
     }
   </script>
+  <script src="js/auth.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="css/remixicon.min.css" rel="stylesheet">
   <style>
-    :where([class^="ri-"])::before { content: "\f3c2"; }
-    body { background-color: #0f172a; color: #f8fafc; }
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
   </style>
 </head>
+
 <body class="bg-slate-900 text-slate-50 min-h-screen">
   <div class="flex min-h-screen">
     <!-- Mobile sidebar overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" onclick="toggleSidebar()"></div>
-    
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"
+      onclick="toggleSidebar()"></div>
+
     <!-- Sidebar -->
-    <aside id="sidebar" class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+    <aside id="sidebar"
+      class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
       <div class="p-6 border-b border-slate-700">
         <div class="flex items-center gap-3">
           <span class="font-['Pacifico'] text-xl text-white">weddingvibes</span>
@@ -56,7 +67,8 @@
           <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Main Menu</h3>
           <ul class="space-y-2">
             <li>
-              <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="index.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-dashboard-line text-sm"></i>
                 </div>
@@ -64,7 +76,8 @@
               </a>
             </li>
             <li>
-              <a href="invitations.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="invitations.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-mail-line text-sm"></i>
                 </div>
@@ -72,7 +85,8 @@
               </a>
             </li>
             <li>
-              <a href="invoice.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="invoice.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-file-text-line text-sm"></i>
                 </div>
@@ -93,7 +107,8 @@
               </a>
             </li>
             <li>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a id="logoutBtn"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-logout-box-line text-sm"></i>
                 </div>
@@ -111,7 +126,9 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-4">
             <!-- Hamburger menu button for mobile -->
-            <button id="sidebar-toggle" class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white" onclick="toggleSidebar()">
+            <button id="sidebar-toggle"
+              class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white"
+              onclick="toggleSidebar()">
               <i class="ri-menu-line text-xl"></i>
             </button>
             <div class="w-8 h-8 flex items-center justify-center">
@@ -146,7 +163,7 @@
           </div>
           <span class="text-white">Profile</span>
         </nav>
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           <div class="lg:col-span-1">
             <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
@@ -156,21 +173,24 @@
                 </div>
                 <h2 class="text-xl font-semibold text-white">John Doe</h2>
                 <p class="text-slate-400 text-sm">john.doe@example.com</p>
-                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium mt-2">Premium User</span>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium mt-2">Premium
+                  User</span>
               </div>
-              
+
               <div class="space-y-3 sm:space-y-4">
-                <button class="w-full py-2 sm:py-3 bg-primary hover:bg-red-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                <button
+                  class="w-full py-2 sm:py-3 bg-primary hover:bg-red-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
                   <i class="ri-edit-line"></i>
                   Edit Profile
                 </button>
-                <button class="w-full py-2 sm:py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                <button
+                  class="w-full py-2 sm:py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
                   <i class="ri-lock-line"></i>
                   Change Password
                 </button>
               </div>
             </div>
-            
+
             <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700 mt-4 sm:mt-6">
               <h3 class="text-lg font-semibold text-white mb-4">Account Statistics</h3>
               <div class="space-y-4">
@@ -204,40 +224,46 @@
               </div>
             </div>
           </div>
-          
+
           <div class="lg:col-span-2">
             <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700">
               <h2 class="text-lg font-semibold text-white mb-4 sm:mb-6">Personal Information</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label class="block text-slate-400 text-sm mb-2">Full Name</label>
-                  <input type="text" value="John Doe" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
+                  <input type="text" value="John Doe"
+                    class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm mb-2">Email Address</label>
-                  <input type="email" value="john.doe@example.com" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
+                  <input type="email" value="john.doe@example.com"
+                    class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm mb-2">Phone Number</label>
-                  <input type="tel" value="+62123123123" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
+                  <input type="tel" value="+62123123123"
+                    class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
                 </div>
                 <div>
                   <label class="block text-slate-400 text-sm mb-2">Date of Birth</label>
-                  <input type="date" value="1990-08-17" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
+                  <input type="date" value="1990-08-17"
+                    class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
                 </div>
                 <div class="sm:col-span-2">
                   <label class="block text-slate-400 text-sm mb-2">Address</label>
-                  <input type="text" value="Jalan Merdeka No. 123, Jakarta, DKI Jakarta " class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
+                  <input type="text" value="Jalan Merdeka No. 123, Jakarta, DKI Jakarta "
+                    class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-primary">
                 </div>
               </div>
-              
+
               <div class="flex justify-end mt-6">
-                <button class="bg-primary hover:bg-red-600 text-white px-6 py-2 sm:py-3 rounded-lg font-medium transition-colors">
+                <button
+                  class="bg-primary hover:bg-red-600 text-white px-6 py-2 sm:py-3 rounded-lg font-medium transition-colors">
                   Save Changes
                 </button>
               </div>
             </div>
-            
+
             <div class="bg-slate-800 rounded-lg p-4 sm:p-6 border border-slate-700 mt-4 sm:mt-6">
               <h2 class="text-lg font-semibold text-white mb-4 sm:mb-6">Preferences</h2>
               <div class="space-y-4">
@@ -248,7 +274,9 @@
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" class="sr-only peer" checked>
-                    <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    <div
+                      class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                    </div>
                   </label>
                 </div>
                 <div class="flex items-center justify-between">
@@ -258,7 +286,9 @@
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" class="sr-only peer">
-                    <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    <div
+                      class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                    </div>
                   </label>
                 </div>
                 <div class="flex items-center justify-between">
@@ -268,7 +298,9 @@
                   </div>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" class="sr-only peer" checked>
-                    <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    <div
+                      class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                    </div>
                   </label>
                 </div>
               </div>
@@ -278,29 +310,29 @@
       </div>
     </main>
   </div>
-  
+
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('sidebar-overlay');
-      
+
       sidebar.classList.toggle('-translate-x-full');
       overlay.classList.toggle('hidden');
     }
-    
-    document.addEventListener('click', function(event) {
+
+    document.addEventListener('click', function (event) {
       const sidebar = document.getElementById('sidebar');
       const toggleButton = document.getElementById('sidebar-toggle');
-      
-      if (!sidebar.classList.contains('-translate-x-full') && 
-          !sidebar.contains(event.target) && 
-          event.target !== toggleButton &&
-          !toggleButton.contains(event.target)) {
+
+      if (!sidebar.classList.contains('-translate-x-full') &&
+        !sidebar.contains(event.target) &&
+        event.target !== toggleButton &&
+        !toggleButton.contains(event.target)) {
         toggleSidebar();
       }
     });
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
       // Update date dynamically
       const now = new Date();
       const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
@@ -310,5 +342,14 @@
       }
     });
   </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      Logout()
+      const response = await fetchProtected("http://localhost:8080/api/me")
+      if (!response) return
+    })
+  </script>
 </body>
+
 </html>

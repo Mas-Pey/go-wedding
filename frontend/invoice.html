@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <script src="js/e.js"></script>
   <meta charset="UTF-8">
@@ -30,20 +31,30 @@
       }
     }
   </script>
+  <script src="js/auth.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="css/remixicon.min.css" rel="stylesheet">
   <style>
-    :where([class^="ri-"])::before { content: "\f3c2"; }
-    body { background-color: #0f172a; color: #f8fafc; }
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
   </style>
 </head>
+
 <body class="bg-slate-900 text-slate-50 min-h-screen">
   <div class="flex min-h-screen">
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" onclick="toggleSidebar()"></div>
-    
-    <aside id="sidebar" class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"
+      onclick="toggleSidebar()"></div>
+
+    <aside id="sidebar"
+      class="w-64 bg-slate-800 border-r border-slate-700 fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50">
       <div class="p-6 border-b border-slate-700">
         <div class="flex items-center gap-3">
           <span class="font-['Pacifico'] text-xl text-white">weddingvibes</span>
@@ -54,7 +65,8 @@
           <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Main Menu</h3>
           <ul class="space-y-2">
             <li>
-              <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="index.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-dashboard-line text-sm"></i>
                 </div>
@@ -62,7 +74,8 @@
               </a>
             </li>
             <li>
-              <a href="invitations.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="invitations.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-mail-line text-sm"></i>
                 </div>
@@ -83,7 +96,8 @@
           <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Account</h3>
           <ul class="space-y-2">
             <li>
-              <a href="profile.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a href="profile.html"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-user-line text-sm"></i>
                 </div>
@@ -91,7 +105,8 @@
               </a>
             </li>
             <li>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+              <a id="logoutBtn"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
                 <div class="w-5 h-5 flex items-center justify-center">
                   <i class="ri-logout-box-line text-sm"></i>
                 </div>
@@ -107,7 +122,9 @@
       <header class="bg-slate-800 border-b border-slate-700 px-4 sm:px-6 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-4">
-            <button id="sidebar-toggle" class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white" onclick="toggleSidebar()">
+            <button id="sidebar-toggle"
+              class="lg:hidden w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white"
+              onclick="toggleSidebar()">
               <i class="ri-menu-line text-xl"></i>
             </button>
             <div class="w-8 h-8 flex items-center justify-center">
@@ -142,15 +159,17 @@
           </div>
           <span class="text-white">Invoice</span>
         </nav>
-        
+
         <div class="bg-slate-800 rounded-lg border border-slate-700 overflow-hidden mb-6 sm:mb-8">
-          <div class="px-4 sm:px-6 py-4 border-b border-slate-700 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div
+            class="px-4 sm:px-6 py-4 border-b border-slate-700 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <h2 class="text-lg font-semibold text-white">Billing History</h2>
-            <button class="bg-primary hover:bg-red-600 text-white px-4 py-2 !rounded-button text-sm font-medium transition-colors self-start sm:self-auto">
+            <button
+              class="bg-primary hover:bg-red-600 text-white px-4 py-2 !rounded-button text-sm font-medium transition-colors self-start sm:self-auto">
               Download All
             </button>
           </div>
-          
+
           <div class="overflow-x-auto">
             <table class="w-full">
               <thead class="bg-slate-700/50">
@@ -272,7 +291,7 @@
             </table>
           </div>
         </div>
-        
+
         <div class="bg-slate-800 rounded-lg border border-slate-700 overflow-hidden">
           <div class="px-4 sm:px-6 py-4 border-b border-slate-700">
             <h2 class="text-lg font-semibold text-white">Payment Method</h2>
@@ -286,61 +305,71 @@
                     <div class="flex flex-col sm:flex-row gap-4 mb-4">
                       <div class="flex-1">
                         <label class="block text-slate-400 text-sm mb-2">Card Number</label>
-                        <input type="text" placeholder="0000 0000 0000 0000" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="0000 0000 0000 0000"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                       <div class="w-24">
                         <label class="block text-slate-400 text-sm mb-2">CVV</label>
-                        <input type="text" placeholder="123" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="123"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                       <div class="flex-1">
                         <label class="block text-slate-400 text-sm mb-2">Name on Card</label>
-                        <input type="text" placeholder="John Doe" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="John Doe"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                       <div class="w-32">
                         <label class="block text-slate-400 text-sm mb-2">Expiry Date</label>
-                        <input type="text" placeholder="MM/YY" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="MM/YY"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 <div>
                   <h3 class="text-white font-medium mb-4">Billing Address</h3>
                   <div class="bg-slate-700 rounded-lg p-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                       <div>
                         <label class="block text-slate-400 text-sm mb-2">First Name</label>
-                        <input type="text" placeholder="John" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="John"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                       <div>
                         <label class="block text-slate-400 text-sm mb-2">Last Name</label>
-                        <input type="text" placeholder="Doe" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="Doe"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                     </div>
                     <div class="mb-4">
                       <label class="block text-slate-400 text-sm mb-2">Address</label>
-                      <input type="text" placeholder="123 Main Street" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                      <input type="text" placeholder="123 Main Street"
+                        class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
                         <label class="block text-slate-400 text-sm mb-2">City</label>
-                        <input type="text" placeholder="New York" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="New York"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                       <div>
                         <label class="block text-slate-400 text-sm mb-2">State</label>
-                        <input type="text" placeholder="NY" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="NY"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                       <div>
                         <label class="block text-slate-400 text-sm mb-2">ZIP Code</label>
-                        <input type="text" placeholder="10001" class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
+                        <input type="text" placeholder="10001"
+                          class="w-full bg-slate-600 border border-slate-500 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-primary">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div class="w-full sm:w-80">
                 <div class="bg-slate-700 rounded-lg p-4 mb-6">
                   <h3 class="text-white font-medium mb-4">Plan Details</h3>
@@ -359,8 +388,9 @@
                     </div>
                   </div>
                 </div>
-                
-                <button class="w-full bg-primary hover:bg-red-600 text-white py-3 rounded-lg font-medium transition-colors">
+
+                <button
+                  class="w-full bg-primary hover:bg-red-600 text-white py-3 rounded-lg font-medium transition-colors">
                   Pay Now
                 </button>
               </div>
@@ -370,29 +400,29 @@
       </div>
     </main>
   </div>
-  
+
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('sidebar-overlay');
-      
+
       sidebar.classList.toggle('-translate-x-full');
       overlay.classList.toggle('hidden');
     }
-    
-    document.addEventListener('click', function(event) {
+
+    document.addEventListener('click', function (event) {
       const sidebar = document.getElementById('sidebar');
       const toggleButton = document.getElementById('sidebar-toggle');
-      
-      if (!sidebar.classList.contains('-translate-x-full') && 
-          !sidebar.contains(event.target) && 
-          event.target !== toggleButton &&
-          !toggleButton.contains(event.target)) {
+
+      if (!sidebar.classList.contains('-translate-x-full') &&
+        !sidebar.contains(event.target) &&
+        event.target !== toggleButton &&
+        !toggleButton.contains(event.target)) {
         toggleSidebar();
       }
     });
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
       const now = new Date();
       const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
       const dateElement = document.querySelector('header span.text-slate-400');
@@ -401,5 +431,14 @@
       }
     });
   </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      Logout()
+      const response = await fetchProtected("http://localhost:8080/api/me")
+      if (!response) return
+    })
+  </script>
 </body>
+
 </html>
